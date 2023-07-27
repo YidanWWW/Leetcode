@@ -11,12 +11,9 @@ import java.util.List;
 
 class Solution {
     public String countAndSay(int n) {
-        String s = "1";
-
-        for(int i=1; i<n; i++) {
-            s = helper(s);
-        }
-        return s;
+        if(n==1) return "1";
+        String s = countAndSay(n-1);
+        return helper(s);
     }
     
     public String helper(String s) {
