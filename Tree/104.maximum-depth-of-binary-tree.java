@@ -22,7 +22,11 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        
+        //recursion or stack
+        if(root==null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return 1+Math.max(left, right);
     }
 }
 // @lc code=end
