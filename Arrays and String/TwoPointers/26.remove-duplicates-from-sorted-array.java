@@ -8,6 +8,7 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
         //two pointers:i,j
+        //1112
         //j: keep track of the current index where a unique element shoule be p;aced
         int i=1, j=1;
         for(;i<nums.length; i++) {
