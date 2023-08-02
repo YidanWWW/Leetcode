@@ -10,7 +10,7 @@ class Solution {
         int start = 0, end = 0, AND = 0, res = 1;
         while(end<nums.length){
             while((AND & nums[end]) > 0) {
-                AND ^= nums[start];
+                AND ^= nums[start]; //remove the start element
                 start++;
             }
             AND |= nums[end];
