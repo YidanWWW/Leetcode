@@ -8,9 +8,9 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         
-        int left = 1, right = getMax(piles);
+        int left = 1, right = getMax(piles)+1;
 
-        while(left<=right){
+        while(left<right){
             int mid = (left+right)/2;
             int hour = 0;
 
