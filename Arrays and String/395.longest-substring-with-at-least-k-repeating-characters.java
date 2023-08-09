@@ -18,6 +18,7 @@ class Solution {
         //check if valid
         boolean valid = true;
         int i=0,j=0;
+        //slide windows
         for(j=0; j<s.length(); j++) {
             if(arr[s.charAt(j)-'a']<k) {
                 valid = false; 
