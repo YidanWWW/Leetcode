@@ -28,7 +28,9 @@ public class combo {
 
         return topKSums;
     }
-        public static void main(String[] args) {
+
+    
+    public static void main(String[] args) {
         int[] arr = {1,2,3,1000};
         int k = 4;
         int[] topKSums = findTopKSubsetSums(arr, k);

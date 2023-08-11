@@ -1,3 +1,4 @@
+package Pratice;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +38,6 @@ public class Solution {
         String s = "adbccdbada";
         int k = 4;
         //int[] topKSums = findTopKSubsetSums(arr, k);
-        System.out.println(imblanced(s, 2));
+        System.out.println(splitString(s, 2));
     }
 }

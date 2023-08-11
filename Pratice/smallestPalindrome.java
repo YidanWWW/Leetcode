@@ -1,8 +1,9 @@
+package Pratice;
 
 public class Solution {
     //lexicographically smallest palindrome
     public static String smallestPalindrome(String s) {
-        //bacab->abcba. aabbc
+        //bacab->abcba, aabbc
         int n = s.length();
         String str = s.substring(0, n/2+1);
         char[] chars = str.toCharArray();
