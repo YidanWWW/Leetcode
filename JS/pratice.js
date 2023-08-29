@@ -17,16 +17,12 @@ const arr3 = arr2.map((element) => {
 console.log(arr3);
 
 
-//fetch api:
-import {useState} from 'react';
+//concat() merge 2 or more arrays
+const array1 = [1,2,3];
+const array2 = [4,5,6];
+const array3 = [7,8,9];
+const array4 = array1.concat(arr2, arr3);
 
-const App=()=> {
-    const [isLoading, setIsLoading] = useState(false);
-    const handleClick = async () => {
-        setIsLoading(true);
-        try {
-            const response = await fetch('http....');
-            if(response.ok)
-        }
-    }
-}
+
+
+
