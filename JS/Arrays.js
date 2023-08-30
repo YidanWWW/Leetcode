@@ -48,7 +48,8 @@ arr3.slice(0,2); //['a', 'b'] [start, end)
 
 //reduce : return the sum 
 const arr4 = [1,2,3,4];
-arr4.reduce((accumulator, current)=>accumulator+current);
+const init = 2;
+arr4.reduce((accumulator, current)=>accumulator+current, init);
 
 //join 
 const elements = ['Fire', 'Air', 'Water'];
