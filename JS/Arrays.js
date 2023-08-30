@@ -38,3 +38,22 @@ array6.at(2); //8
 const arr1 = [1,2,3,4];
 arr1.map((element)=>[element*2]); //[[2],[4],[6],[8]]
 arr1.map((element)=>[element*2]); //[2,4,6,8]
+
+const arr2 = [[1,2],3,4];
+arr2.flat(arr2);
+
+//slice
+const arr3=['a','b','c','d'];
+arr3.slice(0,2); //['a', 'b'] [start, end)
+
+//reduce : return the sum 
+const arr4 = [1,2,3,4];
+arr4.reduce((accumulator, current)=>accumulator+current);
+
+//join 
+const elements = ['Fire', 'Air', 'Water'];
+elements.join() //"Fire,Air,Water"
+elements.join('') //"FireAirWater"
+element.join('-') // "Fire-Air-Water"
+
+

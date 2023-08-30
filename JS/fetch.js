@@ -13,7 +13,6 @@ const App=()=> {
             }
             const result = await response.json();
 
-            
         }catch (err) {
             setErr(err.message);
         }finally {
@@ -56,6 +55,32 @@ fetch('http://example...')
     return response.json();
 })
 .then(data => console.log(data)) //handle data
-.catch(errot => console.log('Error'))
+.catch(error => console.log('Error'))
 .finally()
 
+//post, delete, get, put
+function performHttpRequest(method, data = null) {
+    const option = {
+        method: method,
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: data ? JSON.stringify(data) : undefined
+    }
+    return fetch(url, option)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        })
+        .then(data => {
+            console.log('Response data:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+performHttpRequest('GET');
+performHttpRequest('POST', {key:'value'});

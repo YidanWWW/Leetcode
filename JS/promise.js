@@ -89,8 +89,23 @@ const promise = new Promise((resolve, reject)=> {
 //use promise
 promise
 .then(()=> {
-    console("Success")
+    console.log("Success")
 })
 .catch(()=> {
-    console("Error")
+    console.log("Error")
+})
+
+const promise1 = new Promise((resolve, reject)=> {
+    const ifSuccess = true;
+    if(ifSuccess) {
+        resolve();
+    }else {
+        reject();
+    }
+})
+
+promise1.then(()=> {
+    console.log('Succcess');
+}).catch(()=> {
+    console.log('Failure')
 })

@@ -36,3 +36,28 @@ async function doStuff() {
 // Output:
 // Delay must be greater than 0
 // Outside
+
+async function httpRequest(method, data) {
+    const url = 'http://example.com';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data? JSON.stringify(data):undefined
+    }
+
+    try{
+        const response = await fetch(url, options);
+        if(!response.ok) {
+            throw new Error('ERROR');
+        }
+        const responseData = response.json();
+        console.log(responseData);
+    }catch (error) {
+        console.error(error);
+    }
+}
+
+performHttpRequest('GET');
+performHttpRequest('POST', { key: 'value' });
