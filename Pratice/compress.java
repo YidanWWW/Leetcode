@@ -51,3 +51,35 @@ public class StringCompression {
         System.out.println(output2);  // Output: a13c4b2
     }
 }
+
+
+
+//按照字母顺序排序
+    public static String fish(String s) {
+        int[] fre = new int[26];
+        char cur = s.charAt(0);
+        for(int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if(Character.isLetter(c)) {
+                cur = c;
+            }else {
+                int count = 0;
+                while(i<s.length() && Character.isDigit(s.charAt(i))) {
+                    count = count*10 + (s.charAt(i)-'0');
+                    i++;
+                }
+                i--;
+                fre[cur-'a'] += count;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<26; i++) {
+            if(fre[i]>0) {
+                sb.append((char)('a'+i));
+                sb.append(fre[i]);
+            }
+        }
+        return sb.toString();
+    }
+
+   
