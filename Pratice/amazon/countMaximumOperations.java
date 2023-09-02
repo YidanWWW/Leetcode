@@ -1,4 +1,4 @@
-package Pratice;
+package amazon;
 public class Solution {
    public static int countMaximumOperations(String s1, String s2) {
         int[] arr1=new int[26];

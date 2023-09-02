@@ -1,3 +1,4 @@
+package amazon;
 class Solution {
     public int totalStrength(int[] A) {
         int res = 0, ac = 0, mod = (int)1e9 + 7, n = A.length;

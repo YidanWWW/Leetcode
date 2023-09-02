@@ -1,3 +1,4 @@
+package amazon;
 class Solution {
     //1567. Maximum Length of Subarray With Positive Product
     public int getMaxLen(int[] nums) {

@@ -1,3 +1,4 @@
+package sf;
 /*
  * Given an array of positive integers, 
  * find maximum possible value K such that 

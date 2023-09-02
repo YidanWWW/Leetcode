@@ -1,3 +1,4 @@
+package amazon;
 /**
  * Count of subarrays starting or ending at an index i such that arr[i] is maximum in subarray
  * Input: arr[] = {3, 4, 1, 6, 2}

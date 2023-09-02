@@ -1,4 +1,4 @@
-package Pratice;
+package amazon;
 
 public class Solution {
     //lexicographically smallest palindrome

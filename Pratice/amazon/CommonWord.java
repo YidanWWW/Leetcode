@@ -1,3 +1,4 @@
+package amazon;
 class Solution {
     public String mostCommonWord(String s, String[] banned) {
         //hashmap to store string and corresponding frequency

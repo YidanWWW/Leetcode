@@ -1,3 +1,4 @@
+package amazon;
 public class MyClass {
     
     public static int CommonPrefix(String s){

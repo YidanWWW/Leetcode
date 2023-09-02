@@ -1,4 +1,4 @@
-package Pratice;
+package amazon;
 
 import java.util.HashSet;
 import java.util.Set;

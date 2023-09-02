@@ -1,3 +1,4 @@
+package amazon;
 public class MyClass {
     
     public long minimumHealth(int[] damage, int armor) {

@@ -1,3 +1,4 @@
+package amazon;
 int solution(string s){
     int nA=0;
     int nZ=0;

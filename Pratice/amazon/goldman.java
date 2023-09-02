@@ -1,3 +1,4 @@
+package amazon;
 import java.util.*;
 
 public class MyClass {

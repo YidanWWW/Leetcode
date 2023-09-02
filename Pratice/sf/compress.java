@@ -1,3 +1,4 @@
+package sf;
 import java.util.*;
 /*
  *  Better compression

@@ -1,4 +1,4 @@
-package Pratice;
+package amazon;
 public class Solution {
     public static String isSubStr(String np, String op) {
         int[] arr = new int[26];
