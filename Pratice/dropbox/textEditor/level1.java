@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextEditor {
+class TextEditor {
     private List<Character> document;
     private int cursorPosition;
 

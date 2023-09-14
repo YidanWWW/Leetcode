@@ -10,6 +10,7 @@ def rodCutting(rod_lengths):
         
         # 移除最短长度的 rods 和相应的 offcuts
         rod_lengths = [rod - shortest_length for rod in rod_lengths if rod > shortest_length]
+        #print(rod_lengths)
         
     return result
 

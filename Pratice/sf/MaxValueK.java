@@ -9,7 +9,7 @@ package sf;
 import java.util.*;
 
 
-public class GFG
+public class MaxValueK
 {
 static int findMaximumNum(int[] arr)
 {

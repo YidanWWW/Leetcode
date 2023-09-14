@@ -1,7 +1,7 @@
 package sf;
 import java.util.*;
 
-public class MyClass {
+public class optimize {
     public static void go(int[] arr, int k) {
         int n = arr.length;
         for(int i=0; i<k; i++) {
