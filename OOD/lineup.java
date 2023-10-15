@@ -8,61 +8,72 @@ public class LineupFactory {
     /// <param name="lineup">The list of players on a fantasy team</param>
     /// <returns>Whether the lineup is valid according to the given rules</returns>
     public boolean validLineup(Contest contest, List<TeamPlayer> lineup) {
-        
+        //null check?
         //The sum of player salary can not exceed the contests max salary cap
         int salarySum = 0;
         for(TeamPlayer player : lineup) {
             salarySum += player.getPlayer().getSalary();
+            if(salarySum > contest.maximumSalaryCap) return false;
         }
-        if(salarySum > contest.getMaximumSalaryCap()) return false;
+        
         
         // Any single player can only be used once
-        Set<Integer> playerIds = new HashSet<>();
-        for(TeamPlayer player: lineup) {
+        //hashset to store used player
+        Set<Integer> playerIdSet = new HashSet<>();
+        for(TeamPlayer player : lineup) {
             int playerId = player.getPlayer().getId();
-            if(playerIds.contains(playerId)) return false;
-            playerIds.add(playerId);
+            if(!playerIdSet.contains(playerId)) return false;
+            playerIdSet.add(playerId);
         }
         
         // The lineup can not contain more than the required amount of players
-        Map<FantasyPosition, Integer> reqPosition = contest.getRosterPositionCount();
-        Map<FantasyPosition, Integer> actualPosition = new HashMap<>();
+        
+        // 2 hashmap: reqPositions, actualPositions, compare them
+        Map<FantasyPosition, Integer> reqPostionsMap = contest.getRosterPositionCount();
+        Map<FantasyPosition, Integer> acutalPositionsMap = new HashMap<>();
         for(TeamPlayer player : lineup) {
-            FantasyPosition position =  player.getFantasyPosition();
-            actualPosition.put(position, actualPosition.getOrDefault(position, 0)+1);
+            FantasyPosition position = player.getFantasyPosition();
+            acutalPositionsMap.put(position, acutalPositionsMap.getOrDefault(position, 0)+1); //key: positon, value:count of this positon
         }
         
-        for(FantasyPosition position : reqPosition.keySet()) {
-            if(!actualPosition.containsKey(position) || actualPosition.get(position) > reqPosition.get(position)) {
-                return false;
-            }
+        //compare these two positions' count
+        for(FantasyPosition position : acutalPositionsMap.keySet()) {
+            if(!reqPostionsMap.containsKey(position) || reqPostionsMap.get(position)<acutalPositionsMap.get(position)) return false;
         }
+        
         
         // There can not be more than 3 players on a single team
-        Map<Integer, Integer> teamPlayerCount = new HashMap<>();
+        Map<Integer, Integer> playerCountMap = new HashMap<>(); //key:teamId, value: count of this player in this team
         for(TeamPlayer player : lineup) {
             int teamId = player.getPlayer().getTeamId();
-            teamPlayerCount.put(teamId, teamPlayerCount.getOrDefault(teamId, 0)+1);
-            if(teamPlayerCount.get(teamId)>3) return false;
+            playerCountMap.put(teamId, playerCountMap.getOrDefault(teamId, 0)+1);
+            if(playerCountMap.get(teamId)>3) return false;
         }
+        
         
         //The lineup must encompass at least two games
-        Set<Integer> gameIds = new HashSet<>();
-        for(TeamPlayer player : lineup) {
-            gameIds.add(player.getPlayer().getNextGameId());
+        //HashSet to store nextGameId, then check hashset's size
+        HashSet<Integer> gameIdsSet = new HashSet<>();
+        for(TeamPlayer player : lineup){
+            int nextGameId = player.getPlayer().getNextGameId();
+            gameIdsSet.add(nextGameId);
         }
-        if(gameIds.size()<2) return false;
+        if(gameIdsSet.size()<2) return false;
         
         // All roster positions listed in the contest must be filled by the lineup
-        Set<TeamPosition> filledPositionSet = new HashSet<>();
+        Set<TeamPosition> filledPositionsSet = new HashSet<>();
         for(TeamPlayer player : lineup) {
-            filledPositionSet.add(player.getPlayer().getPosition());
-        }
+            filledPositionsSet.add(player.getPlayer().getPosition());
+        } 
         
-        for(FantasyPosition position : reqPosition.keySet()) {
-            List<TeamPosition> req = position.getAllowedPositions();
-            if(!filledPositionSet.containsAll(req)) return false;
+        for(FantasyPosition position : reqPostionsMap.keySet()) {
+            List<TeamPosition> list = position.getAllowedPositions();
+            if(!filledPositionsSet.containsAll(list)) return false;
         }
+        return true;
+        
+        
+        
     }
        
     public class Contest {
