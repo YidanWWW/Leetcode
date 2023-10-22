@@ -30,7 +30,7 @@ public class Solution {
             discountMap.put(d.getDiscountId(), d);
         }
         
-        Map<Interger, Customer> customerMap = new HashMap<>();
+        Map<Integer, Customer> customerMap = new HashMap<>();
         for(Customer c : customers) {
             customerMap.put(c.getCustomerId(), c);
         }

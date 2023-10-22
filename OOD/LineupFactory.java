@@ -61,15 +61,23 @@ public class LineupFactory {
         if(gameIdsSet.size()<2) return false;
         
         // All roster positions listed in the contest must be filled by the lineup
-        Set<TeamPosition> filledPositionsSet = new HashSet<>();
+        Map<TeamPosition, Integer> filledPositionsMap = new HashMap<>();
         for(TeamPlayer player : lineup) {
-            filledPositionsSet.add(player.getPlayer().getPosition());
+            TeamPosition position = player.getPlayer().getPosition();
+            filledPositionsMap.put(position, filledPositionsMap.getOrDefault(position, 0)+1);
         } 
         
         for(FantasyPosition position : reqPostionsMap.keySet()) {
             List<TeamPosition> list = position.getAllowedPositions();
             if(!filledPositionsSet.containsAll(list)) return false;
         }
+
+
+
+
+
+
+
         return true;
         
         
