@@ -11,6 +11,6 @@ def sortColors(nums):
 
 
 # 测试
-nums = [1, 0, 1, 0, 1, 0]
+nums = [1, 0, 1, 0, 1, 0,0,0,0]
 sortColors(nums)
 print(nums)  # 输出: [0, 0, 0, 1, 1, 1]
